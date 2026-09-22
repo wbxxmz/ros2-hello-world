@@ -13,8 +13,8 @@ setup(
     ],
     install_requires=['setuptools'],
     zip_safe=True,
-    maintainer='your_name',
-    maintainer_email='your_email@example.com',
+    maintainer='闫家豪',
+    maintainer_email='1461766338@qq.com',
     description='博客《同样是Python，为什么ROS2代码看起来完全不一样》配套示例',
     license='Apache-2.0',
     entry_points={
