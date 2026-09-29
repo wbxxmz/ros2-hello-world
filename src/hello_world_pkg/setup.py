@@ -19,8 +19,16 @@ setup(
     license='Apache-2.0',
     entry_points={
         'console_scripts': [
-            # ros2 run hello_world_pkg hello_world 就是从这里来的
+            # 第一篇博客的示例
             'hello_world = hello_world_pkg.hello_world_node:main',
+            # 第二篇博客：话题
+            'talker = hello_world_pkg.talker:main',
+            'listener = hello_world_pkg.listener:main',
+            # 第二篇博客：服务
+            'add_server = hello_world_pkg.add_server:main',
+            'add_client = hello_world_pkg.add_client:main',
+            # 第二篇博客：参数
+            'configurable_node = hello_world_pkg.configurable_node:main',
         ],
     },
 )
