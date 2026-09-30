@@ -15,15 +15,19 @@ class ConfigurableNode(Node):
 
         # 获取参数
         freq = self.get_parameter('publish_frequency').value    # 读出发布频率
+        self.count = 0                                          # 序号，方便截图数频率
 
         self.pub = self.create_publisher(String, 'chat', 10)    # 往 chat 频道挂广播喇叭
         self.create_timer(freq, self.timer_callback)            # 按读出的频率排班
 
     def timer_callback(self):
+        self.count += 1
         msg = String()                                          # 拿一张空白纸条
         msg.data = self.get_parameter(
             'message_content').value                            # 每次发布前读最新值
         self.pub.publish(msg)                                   # 喊出去
+        now = time.strftime('%H:%M:%S')                         # 可读时间，截图里能直接看间隔
+        self.get_logger().info(f'[{now}] #{self.count} 发布: {msg.data}')  # 用对讲机记一笔
 
 
 def main():
